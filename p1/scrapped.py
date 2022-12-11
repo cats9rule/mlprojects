@@ -78,3 +78,52 @@ report = classification_report(target_test,pred)
 with io.open('evaluation/classification_report_scaler_concatinated.txt','w',encoding='utf-8') as f: f.write(report)
 result = confusion_matrix(target_test, pred)
 print(result)
+
+
+
+
+
+##PRINT TREE KOD RANDOM TREE
+
+dot_data = tree.export_graphviz(rf_random.best_estimator_[0],
+ out_file=None,
+feature_names=data_features.columns,
+ class_names=['0','1'])
+
+graph = pydotplus.graph_from_dot_data(dot_data)
+
+Image(graph.create_png())
+
+
+
+randomForest = RandomForestClassifier(random_state=0, criterion="entropy") 
+# kod decision tree smo koristili gini criterion, možda bi mogli da probamo gini i ovde?
+
+randomForestModel = randomForest.fit(data_train, target_train)
+
+dot_data = tree.export_graphviz(randomForestModel.estimators_[5],
+ out_file=None,
+feature_names=data_features.columns,
+ class_names=['0','1'])
+
+graph = pydotplus.graph_from_dot_data(dot_data)
+
+Image(graph.create_png())
+
+
+
+## SVC NA KRAJU
+
+
+svc_model = SVC()
+hyperparameters = {'C': np.logspace(0,10,10), 
+              'gamma': np.logspace(0,10,10,base=0.1),
+              'kernel': ['rbf']} 
+rnd_search_cv = GridSearchCV(svc_model,hyperparameters, cv=3, verbose=3,
+ n_jobs=-1)
+best_SVC_model = rnd_search_cv.fit(data_train,target_train)
+print(best_SVC_model.best_params_)
+best_SVC_pred = best_SVC_model.predict(data_test)
+
+print("Best SVC accuracy : ",accuracy_score(target_test, best_SVC_pred, normalize = True))
+print(confusion_matrix(target_test, best_SVC_pred))
