@@ -127,3 +127,17 @@ best_SVC_pred = best_SVC_model.predict(data_test)
 
 print("Best SVC accuracy : ",accuracy_score(target_test, best_SVC_pred, normalize = True))
 print(confusion_matrix(target_test, best_SVC_pred))
+
+
+
+
+#### CROSS VALIDATION SCORE ####
+from sklearn.model_selection import cross_val_score,RepeatedStratifiedKFold
+
+svc_model =  SVC(C=166.81005372000593,gamma=1)
+model = svc_model.fit(data_train,target_train)
+cv = RepeatedStratifiedKFold(n_splits=10,n_repeats=3,random_state=1)
+
+score = cross_val_score(model,data_train,target_train,scoring='accuracy',cv=cv,n_jobs=-1)
+print('Accuracy: %.10f (%.10f)' % (np.mean(score), np.std(score)))
+score
