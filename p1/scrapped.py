@@ -141,3 +141,10 @@ cv = RepeatedStratifiedKFold(n_splits=10,n_repeats=3,random_state=1)
 score = cross_val_score(model,data_train,target_train,scoring='accuracy',cv=cv,n_jobs=-1)
 print('Accuracy: %.10f (%.10f)' % (np.mean(score), np.std(score)))
 score
+
+
+
+
+for clf, label in zip([svc, decisionTree, randomForest,knn,naive_bayes, voting_classifier], ['SVC','Decision Tree', 'Random Forest','KNeighbors' ,'Naive Bayes', 'Ensemble']):
+    scores = cross_val_score(clf, data_train, target_train, scoring='accuracy', cv=5)
+    print("Accuracy: %0.10f (+/- %0.10f) [%s]" % (scores.mean(), scores.std(), label))
