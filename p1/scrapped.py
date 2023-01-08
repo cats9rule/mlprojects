@@ -148,3 +148,7 @@ score
 for clf, label in zip([svc, decisionTree, randomForest,knn,naive_bayes, voting_classifier], ['SVC','Decision Tree', 'Random Forest','KNeighbors' ,'Naive Bayes', 'Ensemble']):
     scores = cross_val_score(clf, data_train, target_train, scoring='accuracy', cv=5)
     print("Accuracy: %0.10f (+/- %0.10f) [%s]" % (scores.mean(), scores.std(), label))
+
+
+## TODO: DT model je los, promenili smo u pipe/pca i taj se koristi sve ispod
+## dt sa balacing najbolji broj features je 7, bez je 4
