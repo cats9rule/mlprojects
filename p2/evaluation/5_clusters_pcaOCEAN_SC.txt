@@ -1,35 +1,45 @@
 cluster  assigned personality
-0         popularity medium      31
+0         serendipity high       65
+          all default            61
+          diversity high         58
+          diversity low          58
+          popularity low         52
+          serendipity medium     52
+          diversity medium       49
+          popularity high        47
+          popularity medium      46
+          serendipity low        38
+1         popularity medium      31
           popularity low         25
           serendipity high       24
-          diversity low          23
           diversity high         22
+          diversity low          22
           popularity high        21
+          serendipity low        21
           all default            20
-          serendipity low        20
           diversity medium       19
           serendipity medium     15
-1         all default            43
+2         popularity low         77
+          popularity medium      69
+          all default            68
+          serendipity high       66
+          serendipity medium     62
+          popularity high        60
+          diversity medium       56
+          diversity low          55
+          serendipity low        52
+          diversity high         46
+3         all default            43
           diversity medium       42
           popularity low         41
           diversity high         40
           popularity high        39
-          serendipity high       39
+          serendipity high       38
           serendipity low        38
           popularity medium      36
           serendipity medium     36
           diversity low          29
-2         popularity low         77
-          popularity medium      67
-          all default            66
-          serendipity high       66
-          serendipity medium     61
-          popularity high        60
-          diversity low          55
-          diversity medium       55
-          serendipity low        53
-          diversity high         45
-3         popularity high        11
+4         popularity high        11
           serendipity low        11
           diversity high          9
           popularity low          9
@@ -39,14 +49,4 @@ cluster  assigned personality
           serendipity medium      6
           diversity low           5
           serendipity high        5
-4         serendipity high       64
-          all default            63
-          diversity high         59
-          diversity low          57
-          serendipity medium     53
-          popularity low         52
-          diversity medium       50
-          popularity medium      48
-          popularity high        47
-          serendipity low        38
 Name: assigned personality, dtype: int64
